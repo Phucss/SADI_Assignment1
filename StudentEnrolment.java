@@ -1,10 +1,8 @@
 package StudentEnrolmentManager;
-import java.util.Scanner;
-import java.util.ArrayList;
+
 import java.util.List;
 
-
-public class StudentEnrolment {
+public class StudentEnrolment implements StudentEnrollmentManager {
 
 	protected Student student;
 	protected Course course;
@@ -24,6 +22,33 @@ public class StudentEnrolment {
 	public String getSemester() {
 		return this.semester;
 	}
+	@Override
+	public void addEnrollment(List<StudentEnrolment> list, StudentEnrolment enroll) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void updateEnrollment(List<StudentEnrolment> list, StudentEnrolment enroll, int index) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void deleteEnrollment(List<StudentEnrolment> list, int index) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void getOne(StudentEnrolment enrollment) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void getAll() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 	
 }

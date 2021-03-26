@@ -65,6 +65,7 @@ public class Main {
 			}
 		sc.close();
 	 }
+
 	 public static void main(String args[]) {
 		//Populate the Student, Course and Enrollment
 		//Create 2 students
@@ -73,6 +74,7 @@ public class Main {
 		Student student3 = new Student("56789,","andrew","23/07/1999");
 		//Create Student list
 		List<Student> StudentList = new ArrayList<Student>();
+		
 		StudentList.add(student1);
 		StudentList.add(student2);
 		StudentList.add(student3);
@@ -100,6 +102,7 @@ public class Main {
 		StudentEnrolmentList.add(enrol4);
 		StudentEnrolmentList.add(enrol5);
 		
+		
 		// Display list of students
 		System.out.println("The Student List : ");
 		for(Student i : StudentList) {
@@ -107,12 +110,12 @@ public class Main {
 		}
 		//Create a menu interface
 		Scanner sc = new Scanner(System.in);
-		String quit = "n";
 		System.out.println("=====MENU=====");
 		System.out.println("1. Enroll a course");
 		System.out.println("2. Show all students in the course");
 		System.out.println("3. show all courses that student enrolled");		
 		String userinput = sc.nextLine();
+		sc.close();
 		switch (userinput) {
 		case "1": {
 			enroll(StudentList, CourseList, StudentEnrolmentList);
@@ -133,6 +136,7 @@ public class Main {
 
 	
 }
+
 
 
 }
