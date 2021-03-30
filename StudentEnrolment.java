@@ -1,8 +1,6 @@
 package StudentEnrolmentManager;
 
-import java.util.List;
-
-public class StudentEnrolment implements StudentEnrollmentManager {
+public class StudentEnrolment {
 
 	protected Student student;
 	protected Course course;
@@ -22,34 +20,5 @@ public class StudentEnrolment implements StudentEnrollmentManager {
 	public String getSemester() {
 		return this.semester;
 	}
-	@Override
-	public void addEnrollment(List<StudentEnrolment> list, StudentEnrolment enroll) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void updateEnrollment(List<StudentEnrolment> list, StudentEnrolment enroll, int index) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void deleteEnrollment(List<StudentEnrolment> list, int index) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void getOne(StudentEnrolment enrollment) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void getAll() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-
-	
 }
 
