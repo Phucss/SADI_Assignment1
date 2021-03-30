@@ -31,25 +31,37 @@ public class Main {
 		admin.enrollmentlist.add(enrol3);
 		//Create a menu interface
 		Scanner sc = new Scanner(System.in);
+		System.out.println("Current Enrollment");
 		admin.getAll();
-		System.out.println("==============");
 		System.out.println("=====MENU=====");
 		System.out.println("1. Enroll a course");
-		System.out.println("2. Show all students in the course");
-		System.out.println("3. show all courses that student enrolled");		
+		System.out.println("2. Update an enrollment");
+		System.out.println("3. Delete an enrollment");		
+		System.out.println("4. Show all students in the course");
+		System.out.println("5. show all courses that student enrolled");		
 		String userinput = sc.nextLine();
 		
 		switch (userinput) {
 		case "1": {
-			admin.addEnrollment(admin.newEnrollment());
+			admin.addEnrollment();
 			admin.getAll();
 			break;
 		}
-		case "2": {
+		case "2":{
+			admin.updateEnrollment();
+			admin.getAll();
+			break;
+		}
+		case "3":{
+			admin.deleteEnrollment();
+			admin.getAll();
+			break;
+		}
+		case "4": {
 			admin.showStudent();
 			break;
 		}
-		case "3": {
+		case "5": {
 			admin.showCourse();
 			break;
 		}

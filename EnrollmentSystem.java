@@ -73,19 +73,27 @@ public class EnrollmentSystem implements StudentEnrollmentManager {
 			return newEnrollment;
 		 }
 	@Override
-	public void addEnrollment(StudentEnrolment enroll) {
-		enrollmentlist.add(enroll);
+	public void addEnrollment() {
+		enrollmentlist.add(newEnrollment());
 		System.out.println("Added Successfully");
 	}
 	@Override
-	public void updateEnrollment(StudentEnrolment enroll, int index) {
-		enrollmentlist.set(index,enroll);
+	public void updateEnrollment() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number of enrollment that you want to replace : ");
+		int index = sc.nextInt();	
+		enrollmentlist.set(index,newEnrollment());
 		System.out.println("Updated Succecssfully");	
+		sc.close();
 	}
 	@Override
-	public void deleteEnrollment(int index) {
+	public void deleteEnrollment() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number of enrollment that you want to delete : ");
+		int index = sc.nextInt();
 		enrollmentlist.remove(index);
 		System.out.println("Deleted Successfully");
+		sc.close();
 	}
 	@Override
 	public void getOne(int index) {
@@ -97,6 +105,7 @@ public class EnrollmentSystem implements StudentEnrollmentManager {
 	@Override
 	public void getAll() {
 		for(int i=1;i<enrollmentlist.size()+1;i++ ) {
+			System.out.print(i+". ");
 			getOne(i);
 			System.out.println("-----------------------");
 		}
