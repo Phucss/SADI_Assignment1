@@ -1,5 +1,8 @@
 package StudentEnrolmentManager;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,7 +16,7 @@ public class EnrollmentSystem implements StudentEnrollmentManager {
 		this.courselist = new ArrayList<Course>();
 		this.enrollmentlist = new ArrayList<StudentEnrolment>();
 	}
-	 public void showCourse() {
+	public void showCourse() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter student name : ");			
 		String sname = sc.nextLine();
@@ -26,7 +29,7 @@ public class EnrollmentSystem implements StudentEnrollmentManager {
 			}
 		sc.close();
 	 }
-	 public void showStudent() {
+	public void showStudent() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter course name : ");
 		String cname = sc.nextLine();
@@ -72,6 +75,33 @@ public class EnrollmentSystem implements StudentEnrollmentManager {
 			sc.close();
 			return newEnrollment;
 		 }
+	public void printCSV(List<StudentEnrolment> list) {
+		try {
+			PrintWriter pw = new PrintWriter(new File("D:\\Test\\enrollments.csv"));
+			StringBuilder sb = new StringBuilder();
+			sb.append("Enrollment");
+			sb.append(",");
+			sb.append("Course");
+			sb.append(",");
+			sb.append("Student");
+			sb.append("\n");
+			
+			for(int i=1;i<list.size()+1;i++) {
+				sb.append(i);
+				sb.append(",");
+				sb.append(list.get(i-1).getCname());
+				sb.append(",");
+				sb.append(list.get(i-1).getSname());
+				sb.append("\n");
+			}
+			pw.write(sb.toString());
+			pw.close();
+			System.out.println("Printed successfully");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	@Override
 	public void addEnrollment() {
 		enrollmentlist.add(newEnrollment());

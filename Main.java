@@ -38,7 +38,8 @@ public class Main {
 		System.out.println("2. Update an enrollment");
 		System.out.println("3. Delete an enrollment");		
 		System.out.println("4. Show all students in the course");
-		System.out.println("5. show all courses that student enrolled");		
+		System.out.println("5. Show all courses that student enrolled");
+		System.out.println("6. Print all enrollments to CSV file");
 		String userinput = sc.nextLine();
 		
 		switch (userinput) {
@@ -63,6 +64,10 @@ public class Main {
 		}
 		case "5": {
 			admin.showCourse();
+			break;
+		}
+		case "6": {
+			admin.printCSV(admin.enrollmentlist);
 			break;
 		}
 		default:{
