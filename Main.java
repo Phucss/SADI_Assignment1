@@ -22,9 +22,9 @@ public class Main {
 		admin.courselist.add(course2);
 		admin.courselist.add(course3);
 		//Create enrollments
-		StudentEnrolment enrol1 = new StudentEnrolment(student1,course1,"2021A");
-		StudentEnrolment enrol2 = new StudentEnrolment(student2,course2,"2021A");
-		StudentEnrolment enrol3 = new StudentEnrolment(student3,course2,"2021A");
+		Enrolment enrol1 = new Enrolment(student1,course1,"2021A");
+		Enrolment enrol2 = new Enrolment(student2,course2,"2021A");
+		Enrolment enrol3 = new Enrolment(student3,course2,"2021A");
 		//add the enrollment into the list
 		admin.enrollmentlist.add(enrol1);
 		admin.enrollmentlist.add(enrol2);

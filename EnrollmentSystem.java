@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EnrollmentSystem implements StudentEnrollmentManager {
-	protected List<StudentEnrolment> enrollmentlist;
+	protected List<Enrolment> enrollmentlist;
 	protected List<Student> studentlist;
 	protected List<Course> courselist;
 	public EnrollmentSystem() {
 		this.studentlist = new ArrayList<Student>();
 		this.courselist = new ArrayList<Course>();
-		this.enrollmentlist = new ArrayList<StudentEnrolment>();
+		this.enrollmentlist = new ArrayList<Enrolment>();
 	}
 	public void showCourse() {
 		Scanner sc = new Scanner(System.in);
@@ -61,7 +61,7 @@ public class EnrollmentSystem implements StudentEnrollmentManager {
 			}
 			return b;
 		}
-	public StudentEnrolment newEnrollment() {
+	public Enrolment newEnrollment() {
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Enter student ID : ");
 			String sID = sc.nextLine();
@@ -71,11 +71,11 @@ public class EnrollmentSystem implements StudentEnrollmentManager {
 			String sem = sc.nextLine();	
 			Student enrollStudent = findStudent(sID);
 			Course enrollCourse = findCourse(course);
-			StudentEnrolment newEnrollment = new StudentEnrolment(enrollStudent, enrollCourse, sem);
+			Enrolment newEnrollment = new Enrolment(enrollStudent, enrollCourse, sem);
 			sc.close();
 			return newEnrollment;
 		 }
-	public void printCSV(List<StudentEnrolment> list) {
+	public void printCSV(List<Enrolment> list) {
 		try {
 			PrintWriter pw = new PrintWriter(new File("D:\\Test\\enrollments.csv"));
 			StringBuilder sb = new StringBuilder();
@@ -110,7 +110,7 @@ public class EnrollmentSystem implements StudentEnrollmentManager {
 	@Override
 	public void updateEnrollment() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the number of enrollment that you want to replace : ");
+		System.out.println("Enter the number of the enrollment that you want to replace : ");
 		int index = sc.nextInt();	
 		enrollmentlist.set(index,newEnrollment());
 		System.out.println("Updated Succecssfully");	
@@ -119,24 +119,29 @@ public class EnrollmentSystem implements StudentEnrollmentManager {
 	@Override
 	public void deleteEnrollment() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the number of enrollment that you want to delete : ");
+		System.out.println("Enter the number of the enrollment that you want to delete : ");
 		int index = sc.nextInt();
 		enrollmentlist.remove(index);
 		System.out.println("Deleted Successfully");
 		sc.close();
 	}
 	@Override
-	public void getOne(int index) {
+	public void getOne() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number of the enrollment that you want to get: ");
+		int index = sc.nextInt();
 		System.out.println("Student name : "+ enrollmentlist.get(index-1).getSname());
 		System.out.println("Course name : " + enrollmentlist.get(index-1).getCname());
 		System.out.println("Semester : "+ enrollmentlist.get(index-1).getSemester());
-		
+		sc.close();
 	}
 	@Override
 	public void getAll() {
 		for(int i=1;i<enrollmentlist.size()+1;i++ ) {
 			System.out.print(i+". ");
-			getOne(i);
+			System.out.println("Student name : "+ enrollmentlist.get(i-1).getSname());
+			System.out.println("Course name : " + enrollmentlist.get(i-1).getCname());
+			System.out.println("Semester : "+ enrollmentlist.get(i-1).getSemester());
 			System.out.println("-----------------------");
 		}
 	}
