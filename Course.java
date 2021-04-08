@@ -3,8 +3,8 @@ package StudentEnrolmentManager;
 public class Course {
 	protected String ID;
 	protected String name;
-	protected int numbcredit;
-	public Course(String ID, String name, int numbcredit) {
+	protected String numbcredit;
+	public Course(String ID, String name, String numbcredit) {
 		this.ID = ID;
 		this.name = name;
 		this.numbcredit = numbcredit;
@@ -12,7 +12,7 @@ public class Course {
 	public Course() {
 		ID="";
 		name="";
-		numbcredit=0;
+		numbcredit="";
 	}
 	public String getID() {
 		return ID;
@@ -20,7 +20,7 @@ public class Course {
 	public String getName() {
 		return name;
 	}
-	public int getNumbcredit() {
+	public String getNumbcredit() {
 		return numbcredit;
 	}
 }

@@ -20,10 +20,12 @@ public class EnrollmentSystem implements StudentEnrollmentManager {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter student name : ");			
 		String sname = sc.nextLine();
+		System.out.println("Enter semester : ");			
+		String semester = sc.nextLine();
 		System.out.println("Courses that "+ sname + " enrolled in sem 2021A are : ");
 			for(int i=0; i < enrollmentlist.size();i++) {
 				if(	enrollmentlist.get(i).getSname().equals(sname) && 
-					enrollmentlist.get(i).getSemester().equals("2021A")) {
+					enrollmentlist.get(i).getSemester().equals(semester)) {
 					System.out.println(enrollmentlist.get(i).getCname());
 				}
 			}
@@ -33,10 +35,12 @@ public class EnrollmentSystem implements StudentEnrollmentManager {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter course name : ");
 		String cname = sc.nextLine();
+		System.out.println("Enter semester : ");			
+		String semester = sc.nextLine();
 		System.out.println("Students that enrolled in "+ cname + " in sem 2021A are : ");
 		for(int i=0; i < enrollmentlist.size();i++) {
 			if(	enrollmentlist.get(i).getCname().equals(cname) && 
-				enrollmentlist.get(i).getSemester().equals("2021A")) {
+				enrollmentlist.get(i).getSemester().equals(semester)) {
 				System.out.println(enrollmentlist.get(i).getSname());
 				}
 			}
@@ -77,7 +81,7 @@ public class EnrollmentSystem implements StudentEnrollmentManager {
 		 }
 	public void printCSV(List<Enrolment> list) {
 		try {
-			PrintWriter pw = new PrintWriter(new File("D:\\Test\\enrollments.csv"));
+			PrintWriter pw = new PrintWriter(new File("C:\\Users\\asus\\eclipse-workspace\\Assignment1\\src\\StudentEnrolmentManager\\enrollments.csv"));
 			StringBuilder sb = new StringBuilder();
 			sb.append("Enrollment");
 			sb.append(",");
