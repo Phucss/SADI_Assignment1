@@ -13,17 +13,17 @@ public class Main {
 		
 		
 		switch (userinput.toLowerCase()) {
-		case "y": {
+		case "y": 
 			System.out.println("Enter the path of the CSV file :");
 			userinput = sc.nextLine();
 			filename = userinput;
-		}
-		case "n": {
+			break;
+		case "n": 
 			filename = "C:\\Users\\asus\\eclipse-workspace\\Assignment1\\src\\StudentEnrolmentManager\\default.csv";
-		}
-		default:{
-			System.out.println("Unvalid input. Please try again");
-		}
+			break;
+		default: 
+			System.out.println("Invalid input");
+		
 		}
 		
 		
@@ -49,18 +49,15 @@ public class Main {
 		}
 
 		//Create a menu interface
-		
-		System.out.println("Current Enrollment");
-		System.out.println("------------------");
-		admin.getAll();
-		System.out.println("=====MENU=====");
+		System.out.println("=======MENU=======");
 		System.out.println("1. Enroll a course");
 		System.out.println("2. Update an enrollment");
 		System.out.println("3. Delete an enrollment");
 		System.out.println("4. View an enrollment");
-		System.out.println("5. Show all students in the course");
-		System.out.println("6. Show all courses that student enrolled");
-		System.out.println("7. Print all enrollments to CSV file");
+		System.out.println("5. View all enrollment");
+		System.out.println("6. Show all students in the course");
+		System.out.println("7. Show all courses that student enrolled");
+		System.out.println("8. Print all enrollments to CSV file");
 		userinput = sc.nextLine();
 		
 		switch (userinput) {
@@ -84,14 +81,18 @@ public class Main {
 			break;
 		}
 		case "5": {
-			admin.showStudent();
+			admin.getAll();
 			break;
 		}
 		case "6": {
-			admin.showCourse();
+			admin.showStudent();
 			break;
 		}
 		case "7": {
+			admin.showCourse();
+			break;
+		}
+		case "8": {
 			admin.printCSV(admin.enrollmentlist);
 			break;
 		}

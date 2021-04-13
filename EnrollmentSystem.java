@@ -132,11 +132,16 @@ public class EnrollmentSystem implements StudentEnrollmentManager {
 	@Override
 	public void getOne() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the number of the enrollment that you want to get: ");
+		System.out.println("Enter the index of the enrollment that you want to get: ");
 		int index = sc.nextInt();
-		System.out.println("Student name : "+ enrollmentlist.get(index-1).getSname());
-		System.out.println("Course name : " + enrollmentlist.get(index-1).getCname());
-		System.out.println("Semester : "+ enrollmentlist.get(index-1).getSemester());
+		if(index>enrollmentlist.size()) {
+			System.out.println("Invalid index");
+		}
+		else {
+			System.out.println("Student name : "+ enrollmentlist.get(index-1).getSname());
+			System.out.println("Course name : " + enrollmentlist.get(index-1).getCname());
+			System.out.println("Semester : "+ enrollmentlist.get(index-1).getSemester());
+		}
 		sc.close();
 	}
 	@Override
